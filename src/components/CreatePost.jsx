@@ -20,63 +20,82 @@ const CreatePost = () => {
 
   return (
     <Form method="POST" className="create-post">
-      <div className="mb-3">
-        <label htmlFor="a" className="form-label">
-          userId
-        </label>
+      <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">Create Post</h2>
 
-        <input
-          type="text"
-          required
-          name="userId"
-          className="form-control"
-          id="a"
-          aria-describedby="emailHelp"
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="b" className="form-label">
-          Title
-        </label>
-        <input type="text" name="title" className="form-control" id="b" />
-      </div>
+        <div className="w-full flex flex-col gap-4">
 
-      <div className="mb-3">
-        <label htmlFor="c" className="form-label">
-          Body
-        </label>
-        <textarea
-          name="body"
-          rows="3"
-          className="form-control"
-          id="c"
-          aria-describedby="emailHelp"
-        ></textarea>
-      </div>
+          <div className="flex flex-col text-left w-full">
+            <label className="text-md font-medium text-gray-600 mb-1">
+              userId
+            </label>
+            <input
+              type="text"
+              name="userId"
+              placeholder="Enter your User ID"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+            />
+          </div>
 
-      <div className="mb-3">
-        <label htmlFor="d" className="form-label">
-          Reaction
-        </label>
-        <input name="reactions" type="text" className="form-control" id="d" />
-      </div>
+          {/* Title */}
+          <div className="flex flex-col text-left w-full">
+            <label className="text-md font-medium text-gray-600 mb-1">
+              Title
+            </label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Enter post title"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+            />
+          </div>
 
-      <div className="mb-3">
-        <label htmlFor="e" className="form-label">
-          Hashtag
-        </label>
-        <input
-          type="text"
-          name="tags"
-          className="form-control"
-          id="e"
-          aria-describedby="emailHelp"
-        />
-      </div>
+          {/* Description */}
+          <div className="flex flex-col text-left w-full">
+            <label className="text-md font-medium text-gray-600 mb-1">
+              Description
+            </label>
+            <textarea
+              rows="4"
+              name="body"
+              placeholder="Write something..."
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-violet-500"
+            ></textarea>
+          </div>
 
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
+          {/* Tags */}
+          <div className="flex flex-col text-left w-full">
+            <label className="text-md font-medium text-gray-600 mb-1">
+              Tags
+            </label>
+            <input
+              type="text"
+              name="tags"
+              placeholder="e.g. react, tailwind, ui"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+            />
+          </div>
+
+          {/* File Upload */}
+          <div className="flex flex-col text-left w-full">
+            <label className="text-md font-medium text-gray-600 mb-1">
+              Upload Image
+            </label>
+            <input
+              type="file"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-violet-500 file:text-white hover:file:bg-violet-600"
+            />
+          </div>
+
+          {/* Button */}
+          <button
+            type="submit"
+            className="mt-4 w-full bg-violet-600 text-white font-semibold py-2 rounded-full active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out"
+          >
+            Post
+          </button>
+        </div>
+      </div>
     </Form>
   );
 };
@@ -84,7 +103,9 @@ const CreatePost = () => {
 export async function FormAction(Data1) {
   const data1 = await Data1.request.formData();
   const data = Object.fromEntries(data1);
+  console.log(data);
   data.tags = data.tags.split(" ");
+  data.reactions= {likes: 1};
 
   return fetch("https://dummyjson.com/posts/add", {
     method: "POST",

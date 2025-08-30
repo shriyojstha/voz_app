@@ -1,6 +1,6 @@
-const LoginForm = () => {
+const LoginForm = ({setState}) => {
   return (
-    <div className="bg-gray px-12 py-2 rounded-3xl border-2 border-gray-200">
+    <div className="bg-white px-12 py-2 rounded-3xl border-2 border-gray-200">
       <div className="my-8">
         <h1 className=" font-semibold">Welcome</h1>
         {/* <p className="font-medium text-lg text-gray-500 mt-4">
@@ -10,14 +10,14 @@ const LoginForm = () => {
 
       <div className="mt-2">
         <div>
-          <label className="text-lg font-medium">Email</label>
+          <label className="text-md font-medium">Email</label>
           <input
             className="w-full border-2 border-gray-100 rounded-xl p-2 mt-1 bg-transparent"
             placeholder="Enter your Email"
           />
         </div>
         <div>
-          <label className="text-lg font-medium">Password</label>
+          <label className="text-md font-medium">Password</label>
           <input
             className="w-full border-2 border-gray-100 rounded-xl p-2 mt-1 bg-transparent"
             placeholder="Enter your Email"
@@ -57,7 +57,8 @@ const LoginForm = () => {
         </div>
         <div className="mt-8 flex flex-col gap--1 justify-center items-center">
           <p className="font-medium text-base">Don't have an Account</p>
-          <button className="text-violet-800 text-base font-medium ml-2">
+          <button className="text-violet-800 text-base font-medium ml-2"
+          onClick={() => setState(true)}>
             Sign up
           </button>
         </div>

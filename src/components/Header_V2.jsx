@@ -15,8 +15,8 @@ const Header_V2 = () => {
  
   return (
     <>
-      <nav className="">
-        <div className="container m-0  flex justify-between items-center bg-zinc-100 py-1">
+      <nav className="w-full bg-zinc-100 bg-gray border-b rounded-lg border-black">
+        <div className="container m-0  flex justify-between items-center  py-1">
           {/* Logo Section */}
           <div>
             <img src={logo1} className={`w-20`} />

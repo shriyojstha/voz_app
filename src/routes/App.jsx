@@ -20,8 +20,8 @@ const App = () => {
 
   return (
     <>
-      <div className="app-container">
-        <div className="flex">
+      <div className="app-container bg-gray-100">
+        <div className="flex ">
           <Sidebar />
         </div>
 
@@ -34,7 +34,7 @@ const App = () => {
 
           {/* {components[currState] || <h1>Error</h1>} */}
 
-          <main>
+          <main className="bg-gray-100">
             <Outlet />
           </main>
 

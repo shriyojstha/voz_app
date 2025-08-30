@@ -26,7 +26,7 @@ function ResponsiveMenu({ open }) {
                 </li>
                 <li>
                   <Link to="/login" className="text-black !no-underline">
-                    Log In
+                    Sign Up
                   </Link>
                 </li>
               </ul>
