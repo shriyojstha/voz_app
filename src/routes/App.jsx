@@ -21,7 +21,7 @@ const App = () => {
   return (
     <>
       <div className="app-container bg-gray-100">
-        <div className="flex ">
+        <div className="flex">
           <Sidebar />
         </div>
 

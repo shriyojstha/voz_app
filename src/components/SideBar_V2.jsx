@@ -1,6 +1,6 @@
 import { ChevronFirst, ChevronLast, MoreVertical } from "lucide-react";
 import { createContext, useState, useContext } from "react";
-import logo from "../assets/logo.png";
+import logo1 from "../assets/logo1.svg";
 
 const SideBarCntxt = createContext({
   isExpanded: [],
@@ -10,14 +10,14 @@ const Sidebar_V2 = ({ children }) => {
   const [isExpanded, setExpanded] = useState(true);
   return (
     <>
-      <div>
+      <div className=''>
         <aside className="hidden lg:block h-screen">
-          <nav className="h-full flex flex-col bg-white border-r shadow-sm">
+          <nav className="h-full flex flex-col bg-gray-100 border-r shadow-sm">
             <div className="p-4 pb-2 flex justify-between items-center">
-              <img src={logo} className={ `overflow-hidden transition-all rounded-full ${isExpanded ? "w-10" : "w-0 h-0"}`  } />
+              <img src={logo1} className={ `overflow-hidden transition-all rounded-full ${isExpanded ? "w-10" : "w-0 h-0"}`  } />
 
               <button
-                className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 "
+                className="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-50 "
                 onClick={() => setExpanded((curr) => !curr)}
               >
                 {isExpanded ? <ChevronFirst /> : <ChevronLast />}
@@ -29,7 +29,7 @@ const Sidebar_V2 = ({ children }) => {
             </SideBarCntxt.Provider>
 
             <div className="border-t flex p-3">
-              <img src={logo} className="w-15 overflow-hidden transition-all  rounded-full" />
+              <img src={logo1} className="w-15 overflow-hidden transition-all  rounded-full" />
               <div
                 className={`flex justify-between items-center overflow-hidden transition-all ${
                   isExpanded ? "w-32 ml-3" : "w-0"

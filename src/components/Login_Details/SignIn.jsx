@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUp";
 
 const Sign = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
+  const [isSignUp, setIsSignUp] = useState(false);
 
   return (
     <div className="w-full h-screen bg-gray-100">
